@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for items in bid %}
+	{% if messages %}
+	{{ message }}
+
+<h1><a href='{% url "update_bid_view" bid_amount %}'>Add<a/></h1>
+
+	{% endif %}
+{% endfor %}
+
+{% endblock %}

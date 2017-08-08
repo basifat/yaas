@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+You searched for: {{ query}}. Below are titles matching your querry
+
+{% for items in auction %}
+{% if not items.banned %}
+
+<h1> <li> {{ items }}  </li></h1>
+
+{% endif %}
+{% endfor %}
+{% endblock %}

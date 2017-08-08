@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load convert %}
+{% load i18n %}
+
+{% block content %}
+ {% if messages %}
+
+
+ 	{% if request.session.lang %}
+    	{% trans message %}
+     {% endif %}
+    
+
+{% endif %}
+	
+	      <!-- Example row of columns  <div class="container"> -->
+	      {% if auction %}
+	      
+	      <div class="row">
+	      	{% for items in auction %}
+	      		{% if not items.banned and not items.due %}
+	        <div class="col-sm-4">
+	          <h2>{{ items.title }}</h2>
+	          <p>{{ items.description }} </p>
+	          {% if currency == "EUR" %}
+	          <p>{{ items.bid_price | convert_price:"EUR" }}  </p>
+	          {% endif %}
+	          {% if currency == "USD" %}
+	          <p>{{ items.bid_price | convert_price:"USD" }}  </p>
+	          {% endif %}
+	           {% if currency == "AUD" %}
+	          <p>{{ items.bid_price | convert_price:"AUD" }}  </p>
+	          {% endif %}
+	          <p><a class="btn btn-default" href='{% url "bid_on_auction" items.slug %}' role="button">BID &raquo;</a></p>
+	          {% endif %}	
+	         
+</div>
+			
+
+	 {% cycle "" "" "" "" "</div> <div class='row'> <div class='col-sm-4'>" %}
+	 {% endfor %}
+
+  {% endif %}
+
+
+  
+ 
+ 
+
+
+{% endblock %}
+
+
