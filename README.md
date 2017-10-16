@@ -10,7 +10,7 @@ popular auction sites include ebay.com and huuto.net
 
 It implements among others, the following use cases:
 
-- Create an user account
+- Create a user account
 - Edit account information
 - Create a new auction
 - Edit the description of an auction
